@@ -7,6 +7,7 @@
   --white-20: rgba(255, 255, 255, 0.2);
   --black: #333;
   --black-10: rgba(0, 0, 0, 0.1);
+  --black-40: rgba(0, 0, 0, 0.4);
 
   --bor-rad-10: 10px;
   --bor-rad-5: 5px;
@@ -64,7 +65,9 @@ header h1 {
 
 /* Main Style */
 main {
+  flex: 1;
   padding: 0 4em;
+  margin-bottom: 6em;
 }
 
 .main-interaction-container {
@@ -199,12 +202,10 @@ main {
 
 /* Footer Style */
 footer {
+  width: 100%;
   padding: 1em 4em;
   background-color: var(--white-20);
-  margin-top: 2em;
-  position: fixed;
-  width: 100%;
-  bottom: 0;
+  margin-top: 5em;
 }
 
 footer p {
@@ -212,5 +213,122 @@ footer p {
   color: var(--white-100);
   font-weight: 500;
   font-size: 1.5rem;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5), 2px 2px 8px rgba(0, 0, 0, 0.1);
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3), 2px 2px 7px rgba(0, 0, 0, 0.2);
+}
+
+a {
+  color: var(--white-100);
+}
+
+/* PopUp Modal Styles */
+#add-book-modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--white-100);
+  padding: 2em;
+  width: clamp(21rem, 100%, 35rem);
+  border-radius: var(--bor-rad-10);
+  border: 1px solid transparent;
+}
+
+#add-book-modal::backdrop {
+  /* backdrop-filter: blur(15px); */
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.add-book-title {
+  text-transform: uppercase;
+  font-size: 1.8rem;
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: 0.8em;
+  color: #2923df;
+}
+
+input,
+#isBookRead {
+  border-radius: var(--bor-rad-5);
+  border: 1px solid transparent;
+  font-family: var(--font-poppins);
+  font-weight: 500;
+  outline: none;
+  background-color: #d4e6ff;
+}
+
+input:hover,
+input:focus {
+  border: 1px dashed #2923df;
+}
+
+input::placeholder {
+  font-weight: 400;
+  color: var(--black-40);
+}
+
+.radio-btn-container {
+  margin-top: 1.5em;
+  display: flex;
+  justify-content: flex-start;
+  gap: 1em;
+  align-items: center;
+}
+
+.input-label,
+input,
+#isBookRead {
+  display: block;
+  font-size: 1.6rem;
+}
+
+.input-label {
+  margin-bottom: 0.3em;
+}
+
+input {
+  width: 100%;
+  margin-bottom: 1em;
+  padding: 0.5em;
+}
+
+#isBookRead {
+  width: 100%;
+  padding: 0.5em;
+}
+
+.modal-btn-container {
+  display: flex;
+  gap: 1em;
+}
+
+.btn.modal-btn {
+  border-radius: var(--bor-rad-5);
+  border: 1px solid transparent;
+  margin-top: 2em;
+  color: var(--white-100);
+  background-color: var(--green);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.modal-submit-btn {
+  flex-grow: 1;
+}
+
+.btn.modal-close-btn {
+  background-color: var(--red);
+
+  flex: 0.4;
+}
+
+.btn.book-btn.not-read {
+  background-color: var(--red);
+}
+
+.btn.book-btn.not-read:hover {
+  background-color: var(--hover-red);
+}
+
+.btn.book-btn.not-read:active {
+  background-color: var(--active-red);
 }

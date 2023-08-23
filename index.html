@@ -14,28 +14,83 @@
     </header>
     <!-- Main -->
     <main>
-      <div class="main-interaction-container">
-        <button type="button" class="btn add-book">+ Add book</button>
-      </div>
-      <div class="main-book-grid-container" data-book-container>
-        <!-- <article class="book">
-          <div class="book-details">
-            <h2 class="book-title">To Kill a Mockingbird</h2>
-            <h3 class="book-author">Harper Lee</h3>
-            <p class="book-page-count">294 Pages</p>
+      <dialog id="add-book-modal">
+        <p class="add-book-title">Add a Book</p>
+        <form id="modal-form" method="dialog" data-add-book-form>
+          <div class="input-item-container">
+            <label class="input-label" for="modal-book-title">Title:</label>
+            <input
+              type="text"
+              name="book-title"
+              id="modal-book-title"
+              placeholder="Book Title"
+              required
+            />
           </div>
-          <div class="book-buttons-container">
-            <button type="button" class="btn book-btn read-toggle">Read</button>
-            <button type="button" class="btn book-btn remove-book">
-              Remove
+          <div class="input-item-container">
+            <label class="input-label" for="modal-author">Author:</label>
+            <input
+              type="text"
+              name="book-author"
+              id="modal-author"
+              placeholder="Book Author"
+              required
+            />
+          </div>
+          <div class="input-item-container">
+            <label class="input-label" for="modal-page-count"
+              >Page Count:</label
+            >
+            <input
+              type="number"
+              name="book-page-count"
+              id="modal-page-count"
+              placeholder="e.g. 231"
+              required
+            />
+          </div>
+          <div class="input-item-container">
+            <label class="input-label" for="isBookRead"
+              >Have you read the book?</label
+            >
+            <select
+              class="radio-btn-container"
+              name="isBookRead"
+              id="isBookRead"
+            >
+              <option value="Read">Read</option>
+              <option value="Not Read" selected>Not Read</option>
+            </select>
+          </div>
+          <div class="modal-btn-container">
+            <button type="submit" class="btn modal-btn modal-submit-btn">
+              Add Book
+            </button>
+            <button
+              type="button"
+              class="btn modal-btn modal-close-btn"
+              id="modal-close-btn"
+            >
+              Close
             </button>
           </div>
-        </article> -->
+        </form>
+      </dialog>
+      <!-- Main Content -->
+      <div class="main-interaction-container">
+        <button type="button" class="btn add-book" data-add-book-btn>
+          + Add book
+        </button>
       </div>
+      <div class="main-book-grid-container" data-book-container></div>
     </main>
     <!-- Footer -->
     <footer>
-      <p>Designed & Coded by Isfaqul @ 2023</p>
+      <p>
+        Designed & Coded by
+        <a target="_blank" href="https://twitter.com/Isfaqul_">Isfaqul</a> @
+        2023
+      </p>
     </footer>
   </body>
 </html>
