@@ -81,6 +81,7 @@ main {
   color: var(--black);
   cursor: pointer;
   background-color: var(--white-100);
+  transition: all 200ms ease;
 }
 
 .btn.add-book {
@@ -198,7 +199,19 @@ main {
   color: var(--active-red);
 }
 
-/* Interactions */
+/* Dynamic Styles */
+
+.btn.book-btn.not-read {
+  background-color: var(--red);
+}
+
+.btn.book-btn.not-read:hover {
+  background-color: var(--hover-red);
+}
+
+.btn.book-btn.not-read:active {
+  background-color: var(--active-red);
+}
 
 /* Footer Style */
 footer {
@@ -240,11 +253,11 @@ a {
 
 .add-book-title {
   text-transform: uppercase;
-  font-size: 1.8rem;
+  font-size: 2.2rem;
   text-align: center;
-  font-weight: 600;
+  font-weight: 700;
   margin-bottom: 0.8em;
-  color: #2923df;
+  color: #1d19a0;
 }
 
 input,
@@ -309,10 +322,19 @@ input {
   color: var(--white-100);
   background-color: var(--green);
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  padding: 0.78em 1em;
 }
 
 .modal-submit-btn {
   flex-grow: 1;
+}
+
+.modal-submit-btn:hover {
+  background-color: var(--hover-green);
+}
+
+.modal-submit-btn:active {
+  background-color: var(--active-green);
 }
 
 .btn.modal-close-btn {
@@ -321,14 +343,31 @@ input {
   flex: 0.4;
 }
 
-.btn.book-btn.not-read {
-  background-color: var(--red);
-}
-
-.btn.book-btn.not-read:hover {
+.btn.modal-close-btn:hover {
   background-color: var(--hover-red);
 }
 
-.btn.book-btn.not-read:active {
+.btn.modal-close-btn:active {
   background-color: var(--active-red);
+}
+
+/* Animation on Delete */
+
+.animate {
+  animation: slide-left 500ms ease-in-out forwards;
+}
+
+@keyframes slide-left {
+  0% {
+    opacity: 1;
+  }
+
+  90% {
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(-300px);
+    opacity: 0;
+  }
 }

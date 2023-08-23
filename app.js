@@ -125,7 +125,23 @@ function updateDisplay() {
 }
 
 // Event Listener to remove books
-bookContainer.addEventListener("click", removeBook);
+bookContainer.addEventListener("click", (e) => {
+  // Add animate class immediately after click
+  animate(e);
+
+  // Carry out deletion after 500ms
+  setTimeout(() => {
+    removeBook(e);
+  }, 500);
+});
+
+// Add animation Function On remove
+function animate(e) {
+  if (e.target.matches("button.remove-book")) {
+    let clickedBookItem = e.target.parentElement.parentElement;
+    clickedBookItem.classList.add("animate");
+  }
+}
 
 // Function to remove book
 function removeBook(e) {
