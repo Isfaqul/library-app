@@ -1,0 +1,216 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,500;1,700&family=Poppins:wght@300;400;500;600;700;800&display=swap");
+
+:root {
+  --main-bg-color: linear-gradient(134deg, #3879d5 0%, #1a14c1 100%);
+
+  --white-100: white;
+  --white-20: rgba(255, 255, 255, 0.2);
+  --black: #333;
+  --black-10: rgba(0, 0, 0, 0.1);
+
+  --bor-rad-10: 10px;
+  --bor-rad-5: 5px;
+
+  --green: #5dbea3;
+  --hover-green: #48b294;
+  --active-green: #5dbea3;
+
+  --red: #cb450b;
+  --hover-red: #de551a;
+  --active-red: #cb450b;
+
+  --page-count: #4a4a4a;
+
+  --font-ibm-plex: "IBM Plex Mono", sans-serif;
+  --font-poppins: Poppins, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: var(--font-poppins);
+  font-size: 62.5%;
+}
+
+body {
+  min-height: 100vh;
+  background: var(--main-bg-color) no-repeat;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header Style */
+
+header {
+  padding: 1em 4em;
+  background-color: var(--white-20);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.05);
+  margin-bottom: 2em;
+}
+
+header h1 {
+  font-size: 4rem;
+  font-family: var(--font-ibm-plex);
+  color: var(--white-100);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5), 2px 2px 9px rgba(0, 0, 0, 0.2);
+  user-select: none;
+}
+
+/* Main Style */
+main {
+  padding: 0 4em;
+}
+
+.main-interaction-container {
+  margin-bottom: 2em;
+}
+
+.btn {
+  font-family: var(--font-poppins);
+  font-weight: 600;
+  padding: 0.5em 1em;
+  color: var(--black);
+  cursor: pointer;
+  background-color: var(--white-100);
+}
+
+.btn.add-book {
+  font-size: 1.6rem;
+  border-radius: var(--bor-rad-10);
+  border: 1px solid transparent;
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.2);
+}
+
+.btn.add-book:hover {
+  border: 1px dashed var(--black);
+}
+
+.btn.add-book:active {
+  border: 1px solid transparent;
+}
+
+/* --Book Box Style-- */
+
+.main-book-grid-container {
+  /* width: 100%; */
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(21rem, 1fr));
+  gap: 2em;
+  /* justify-content: flex-start; */
+}
+
+.book {
+  background-color: var(--white-100);
+  border-radius: var(--bor-rad-10);
+  padding: 2em 1.8em;
+  /* max-width: 22em; */
+  /* max-height: 25em; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.25);
+}
+
+.book .book-title {
+  font-size: 2.2rem;
+  text-transform: uppercase;
+  font-weight: 800;
+  color: #130cb7; /* Need to change color dynamically */
+  line-height: 100%;
+  border-left: 2px solid #130cb7;
+  padding-left: 1rem;
+  margin-bottom: 0.5em;
+}
+
+.book .book-author {
+  font-size: 2rem;
+  font-weight: 500;
+  border-left: 2px solid var(--black-10);
+  padding-left: 1rem;
+  margin-bottom: 1.2em;
+  color: var(--black);
+}
+
+.book .book-page-count {
+  font-size: 1.2rem;
+  font-weight: 500;
+  border-left: 2px solid var(--black-10);
+  padding-left: 1rem;
+  color: var(--page-count);
+  margin-bottom: 7rem;
+}
+
+.book .book-buttons-container {
+  display: flex;
+  gap: 1em;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.btn.book-btn {
+  font-size: 1.2rem;
+  border-radius: var(--bor-rad-5);
+  font-weight: 500;
+  border: 1px solid transparent;
+  width: 100%;
+}
+
+.btn.book-btn.read-toggle {
+  background-color: var(--green);
+  color: var(--white-100);
+  transition: 100ms;
+}
+
+/* Interactions */
+
+.btn.book-btn.read-toggle:hover {
+  background-color: var(--hover-green);
+}
+
+.btn.book-btn.read-toggle:active {
+  background-color: var(--active-green);
+}
+
+.btn.book-btn.remove-book {
+  background-color: transparent;
+  border: 1px dashed var(--black-10);
+  color: var(--red);
+  text-decoration: underline;
+  transition: 100ms;
+}
+
+.btn.book-btn.remove-book:hover {
+  border-color: var(--hover-red);
+  color: var(--hover-red);
+}
+
+.btn.book-btn.remove-book:active {
+  border-color: var(--black-10);
+  color: var(--active-red);
+}
+
+/* Interactions */
+
+/* Footer Style */
+footer {
+  padding: 1em 4em;
+  background-color: var(--white-20);
+  margin-top: 2em;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+
+footer p {
+  font-family: var(--font-ibm-plex);
+  color: var(--white-100);
+  font-weight: 500;
+  font-size: 1.5rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5), 2px 2px 8px rgba(0, 0, 0, 0.1);
+}
