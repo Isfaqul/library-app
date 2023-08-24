@@ -129,6 +129,9 @@ main {
   line-height: 100%;
   border-left: 2px solid #130cb7;
   padding-left: 1rem;
+  padding-right: 0.5em;
+  padding-bottom: 0.3em;
+  padding-top: 0.3em;
   margin-bottom: 0.5em;
 }
 
@@ -137,6 +140,9 @@ main {
   font-weight: 500;
   border-left: 2px solid var(--black-10);
   padding-left: 1rem;
+  padding-right: 0.5em;
+  padding-bottom: 0.1em;
+  padding-top: 0.1em;
   margin-bottom: 1.2em;
   color: var(--black);
 }
@@ -146,6 +152,9 @@ main {
   font-weight: 500;
   border-left: 2px solid var(--black-10);
   padding-left: 1rem;
+  padding-right: 0.5em;
+  padding-bottom: 0.4em;
+  padding-top: 0.4em;
   color: var(--page-count);
   margin-bottom: 7rem;
 }
