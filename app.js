@@ -1,4 +1,5 @@
 "use strict";
+
 // Grab Elements
 const bookContainer = document.querySelector("[data-book-container]");
 const addBookModal = document.querySelector("#add-book-modal");
@@ -10,7 +11,7 @@ const modalCloseBtn = document.querySelector("#modal-close-btn");
 let myLibrary = [];
 
 // Book constructor
-function Book(title, author, pageCount, isRead, id) {
+function Book(title, author, pageCount, isRead) {
   this.title = title;
   this.author = author;
   this.pageCount = pageCount;
@@ -145,7 +146,6 @@ function animate(e) {
 
 // Function to remove book
 function removeBook(e) {
-  // Turning html book Elements to book Array
   let booksArray = Array.from(bookContainer.children);
 
   if (e.target.matches("button.remove-book")) {
@@ -160,9 +160,13 @@ function removeBook(e) {
 bookContainer.addEventListener("click", toggleRead);
 
 function toggleRead(e) {
+  let booksArray = Array.from(bookContainer.children);
+
   if (e.target.matches("button.read-toggle")) {
-    let readBtn = e.target;
-    readBtn.innerText = "Read";
-    readBtn.classList.remove("not-read");
+    let clickedBookItem = e.target.parentElement.parentElement;
+    let clickedBookIndex = booksArray.indexOf(clickedBookItem);
+    myLibrary[clickedBookIndex].isRead = "Read";
+
+    updateDisplay();
   }
 }
